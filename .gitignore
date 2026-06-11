@@ -1,0 +1,40 @@
+# Python / Django
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+db.sqlite3
+*.sqlite3
+.coverage
+htmlcov/
+coverage/
+.pytest_cache/
+staticfiles/
+media/
+
+# Env
+.env
+.env.local
+*.env
+!*.env.example
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+dist/
+npm-debug.log*
+yarn-error.log*
+.turbo/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Misc
+*.log
+.codex_prompt.txt
