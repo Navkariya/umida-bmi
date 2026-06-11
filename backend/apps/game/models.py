@@ -1,6 +1,18 @@
 from django.db import models
 
 
+class Fan(models.Model):
+    nom = models.CharField(max_length=100)
+    emoji = models.CharField(max_length=10, blank=True)
+    rang = models.CharField(max_length=20, blank=True)
+
+    class Meta:
+        ordering = ["pk"]
+
+    def __str__(self) -> str:
+        return f"{self.emoji} {self.nom}"
+
+
 class GameScenario(models.Model):
     TUR_TURI = [
         ("yolgon_top", "Yolg'onni top"),
@@ -9,6 +21,13 @@ class GameScenario(models.Model):
     tur = models.PositiveSmallIntegerField(help_text="1-5")
     tur_turi = models.CharField(max_length=20, choices=TUR_TURI)
     mazmun = models.JSONField()
+    fan = models.ForeignKey(
+        Fan,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="stsenariylar",
+    )
 
     class Meta:
         ordering = ["tur"]
@@ -21,6 +40,13 @@ class GameSession(models.Model):
     HOLAT = [("faol", "Faol"), ("tugagan", "Tugagan")]
     student = models.ForeignKey(
         "students.Student",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="sessiyalar",
+    )
+    fan = models.ForeignKey(
+        Fan,
         null=True,
         blank=True,
         on_delete=models.SET_NULL,

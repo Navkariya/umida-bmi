@@ -6,13 +6,25 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 
 from apps.ai.provider import get_provider
-from apps.game.models import GameScenario, GameScore, GameSession, RoundAnswer
+from apps.game.models import Fan, GameScenario, GameScore, GameSession, RoundAnswer
+
+
+@api_view(["GET"])
+def fanlar(request: Request) -> Response:
+    data = [
+        {"fan_id": f.pk, "nom": f.nom, "emoji": f.emoji, "rang": f.rang}
+        for f in Fan.objects.all()
+    ]
+    return Response(data)
 
 
 @api_view(["GET"])
 def scenarios(request: Request) -> Response:
     student_id = request.query_params.get("student_id", "").strip() or None
+    fan_id_raw = request.query_params.get("fan_id", "").strip() or None
     student = None
+    fan = None
+
     if student_id:
         from apps.students.models import Student  # noqa: PLC0415
 
@@ -21,7 +33,17 @@ def scenarios(request: Request) -> Response:
         except (Student.DoesNotExist, Exception):
             pass
 
-    all_scenarios = list(GameScenario.objects.all())
+    if fan_id_raw:
+        try:
+            fan = Fan.objects.get(pk=int(fan_id_raw))
+        except (Fan.DoesNotExist, ValueError):
+            pass
+
+    if fan:
+        all_scenarios = list(GameScenario.objects.filter(fan=fan))
+    else:
+        all_scenarios = list(GameScenario.objects.filter(fan__isnull=True))
+
     yolgon = [s for s in all_scenarios if s.tur_turi == "yolgon_top"]
     detektiv = [s for s in all_scenarios if s.tur_turi == "detektiv"]
 
@@ -36,7 +58,7 @@ def scenarios(request: Request) -> Response:
     ordered = yolgon[:2] + detektiv[:3]
     tartib = [s.pk for s in ordered]
 
-    sessiya = GameSession.objects.create(student=student, stsenariy_tartib=tartib)
+    sessiya = GameSession.objects.create(student=student, fan=fan, stsenariy_tartib=tartib)
 
     stsenariylar = [
         {

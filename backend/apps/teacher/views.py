@@ -109,6 +109,55 @@ def group_stats(request: Request) -> Response:
     return Response(result)
 
 
+@api_view(["POST"])
+@authentication_classes([SessionAuthentication])
+def create_fan(request: Request) -> Response:
+    err = _check_teacher(request)
+    if err is not None:
+        return err
+
+    from apps.game.models import Fan
+
+    nom = (request.data.get("nom") or "").strip()
+    emoji = (request.data.get("emoji") or "").strip()
+    rang = (request.data.get("rang") or "#0290ee").strip()
+
+    if not nom:
+        return Response({"xato": "Fan nomi majburiy"}, status=status.HTTP_400_BAD_REQUEST)
+
+    fan = Fan.objects.create(nom=nom, emoji=emoji, rang=rang)
+    return Response(
+        {"fan_id": fan.pk, "nom": fan.nom, "emoji": fan.emoji, "rang": fan.rang},
+        status=status.HTTP_201_CREATED,
+    )
+
+
+@api_view(["GET"])
+@authentication_classes([SessionAuthentication])
+def fan_stats(request: Request) -> Response:
+    err = _check_teacher(request)
+    if err is not None:
+        return err
+
+    from django.db.models import Avg
+    from apps.game.models import Fan, GameScore, GameSession
+
+    result = []
+    for fan in Fan.objects.all():
+        soni = GameSession.objects.filter(fan=fan, holat="tugagan").count()
+        scores = GameScore.objects.filter(sessiya__fan=fan)
+        agg = scores.aggregate(avg=Avg("ball"))
+        result.append({
+            "fan_id": fan.pk,
+            "nom": fan.nom,
+            "emoji": fan.emoji,
+            "rang": fan.rang,
+            "sessiya_soni": soni,
+            "o_rtacha_ball": round(agg["avg"] or 0),
+        })
+    return Response(result)
+
+
 @api_view(["GET"])
 @authentication_classes([SessionAuthentication])
 def student_detail(request: Request, student_id) -> Response:

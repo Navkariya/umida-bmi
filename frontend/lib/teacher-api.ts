@@ -96,8 +96,32 @@ export async function fetchGroupStats(): Promise<GroupStats> {
   return teacherFetch("/api/teacher/groups/");
 }
 
+export interface FanStat {
+  fan_id: number;
+  nom: string;
+  emoji: string;
+  rang: string;
+  sessiya_soni: number;
+  o_rtacha_ball: number;
+}
+
 export async function fetchStudentDetail(id: string): Promise<StudentDetail> {
   return teacherFetch(`/api/teacher/students/${id}/`);
+}
+
+export async function fetchFanStats(): Promise<FanStat[]> {
+  return teacherFetch("/api/teacher/fan-stats/");
+}
+
+export async function createFan(data: {
+  nom: string;
+  emoji: string;
+  rang: string;
+}): Promise<{ fan_id: number; nom: string; emoji: string; rang: string }> {
+  return teacherFetch("/api/teacher/fanlar/", {
+    method: "POST",
+    body: JSON.stringify(data),
+  });
 }
 
 export async function fetchStudentHistory(

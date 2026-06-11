@@ -1,0 +1,661 @@
+[
+  {
+    "model": "game.gamescenario",
+    "pk": 6,
+    "fields": {
+      "tur": 1, "tur_turi": "yolgon_top", "fan": 1,
+      "mazmun": {
+        "savol": "Fotosintez haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "Fotosintezda karbonat angidrid yutiladi va kislorod ajratiladi."},
+          {"id": "D2", "matn": "Xlorofill o'simliklarga yashil rang beradi va yorug'likni yutadi."},
+          {"id": "D3", "matn": "Fotosintez faqat tunda amalga oshadi."}
+        ],
+        "togri_javob": "D3",
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["quyosh", "kunduz", "yorug'lik", "tun", "emas", "faqat"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 60, "tushuntirish": 40},
+        "izoh": "Fotosintez quyosh nuri bilan kunduz kuni amalga oshadi. Tunda o'simliklar nafas oladi (kislorod yutadi)."
+      }
+    }
+  },
+  {
+    "model": "game.gamescenario",
+    "pk": 7,
+    "fields": {
+      "tur": 2, "tur_turi": "yolgon_top", "fan": 1,
+      "mazmun": {
+        "savol": "Inson tanasi haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "Katta yoshli inson tanasida 206 ta suyak mavjud."},
+          {"id": "D2", "matn": "Jigar tananing eng katta ichki organi hisoblanadi."},
+          {"id": "D3", "matn": "O'pka qon hosil qilishning asosiy organi hisoblanadi."}
+        ],
+        "togri_javob": "D3",
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["suyak", "ilik", "nafas", "o'pka", "qon", "hosil"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 60, "tushuntirish": 40},
+        "izoh": "Qon hosil qilish (gematopoez) suyak iligida amalga oshadi. O'pkaning asosiy vazifasi kislorod almashuvidir."
+      }
+    }
+  },
+  {
+    "model": "game.gamescenario",
+    "pk": 8,
+    "fields": {
+      "tur": 3, "tur_turi": "detektiv", "fan": 1,
+      "mazmun": {
+        "savol": "DNK va irsiyat haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "DNK ikki zanjirli spiral tuzilishga ega."},
+          {"id": "D2", "matn": "Inson tanasidagi barcha hujayralar mutlaqo bir xil DNKga ega."},
+          {"id": "D3", "matn": "DNK adenin, guanin, sitozin va timin bazalaridan iborat."}
+        ],
+        "togri_javob": "D2",
+        "dalillar": [
+          {"id": "Dal1", "matn": "Jinsiy hujayralar (sperm va tuxum) somatik hujayralardan farqli — ular gaploid, ya'ni yagona xromosom to'plamiga ega."},
+          {"id": "Dal2", "matn": "Immunitet hujayralari (B-limfositlar) antigen retseptorlarini kodlash uchun DNK segmentlarini qayta tartibga soladi."},
+          {"id": "Dal3", "matn": "Saraton hujayralarida mutatsiyalar tufayli DNK sog'lom hujayralardan farq qilishi mumkin."},
+          {"id": "Dal4", "matn": "Barcha organizm hujayralarida bir xil yadro DNKsi bo'lishi haqidagi fikr faqat somatik hujayralar uchun to'g'ri."}
+        ],
+        "togri_dalillar": ["Dal1", "Dal2"],
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["jinsiy", "sperm", "tuxum", "immun", "gaploid", "retseptor", "barcha", "emas"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 40, "togri_dalil": 20, "tushuntirish": 40},
+        "izoh": "Jinsiy hujayralar va immunitet hujayralari boshqa DNKga ega. 'Barcha hujayralar' iborasi yolg'on."
+      }
+    }
+  },
+  {
+    "model": "game.gamescenario",
+    "pk": 9,
+    "fields": {
+      "tur": 4, "tur_turi": "detektiv", "fan": 1,
+      "mazmun": {
+        "savol": "Hujayra organoidlari haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "Prokaryot hujayralarda yadro qobig'i mavjud emas."},
+          {"id": "D2", "matn": "Mitoxondriya hujayra yadrosining ichida joylashgan."},
+          {"id": "D3", "matn": "Ribosomalar protein sintezida ishtirok etadi."}
+        ],
+        "togri_javob": "D2",
+        "dalillar": [
+          {"id": "Dal1", "matn": "Mikroskopik tadqiqotlar mitoxondriyaning sitoplazma ichida erkin joylashganini ko'rsatadi."},
+          {"id": "Dal2", "matn": "Mitoxondriya o'zining DNKsi va ribosomalariga ega — bu uning sitoplazmadagi avtonom organoid ekanini tasdiqlaydi."},
+          {"id": "Dal3", "matn": "Yadroda xromosomalar va yadrocha joylashadi, mitoxondriya emas."},
+          {"id": "Dal4", "matn": "Florescent bo'yash usuli bilan mitoxondriyaning sitoplazmada to'planganini ko'rish mumkin."}
+        ],
+        "togri_dalillar": ["Dal1", "Dal2"],
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["sitoplazma", "yadro", "ichida", "emas", "organoid", "membrana"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 40, "togri_dalil": 20, "tushuntirish": 40},
+        "izoh": "Mitoxondriya sitoplazmada joylashgan, yadro ichida emas. U o'zining DNKsi bilan mustaqil organoiddir."
+      }
+    }
+  },
+  {
+    "model": "game.gamescenario",
+    "pk": 10,
+    "fields": {
+      "tur": 5, "tur_turi": "detektiv", "fan": 1,
+      "mazmun": {
+        "savol": "Evolyutsiya haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "Natural tanlanish evolyutsiyaning asosiy harakatlantiruvchi kuchi hisoblanadi."},
+          {"id": "D2", "matn": "Evolyutsiya bitta avlod ichida to'liq yakunlanuvchi jarayon hisoblanadi."},
+          {"id": "D3", "matn": "Gomologik organlar umumiy ajdoddan kelganligini ko'rsatadi."}
+        ],
+        "togri_javob": "D2",
+        "dalillar": [
+          {"id": "Dal1", "matn": "Kitlar va ko'r sichqonlar millionlab yillar davomida evolyutsiyalashgan — bu jarayon bir avlodda tugamaydi."},
+          {"id": "Dal2", "matn": "Fossillar yozuvlari turlarning uzoq vaqt davomida asta-sekin o'zgarishini isbotlaydi."},
+          {"id": "Dal3", "matn": "Antibiotiklarga chidamli bakteriyalar o'n yillar ichida paydo bo'lgan — evolyutsiya hozir ham davom etmoqda."},
+          {"id": "Dal4", "matn": "Genotip nasldan naslga o'tadi va mutatsiyalar to'planishi minglab yillar davom etadi."}
+        ],
+        "togri_dalillar": ["Dal2", "Dal3"],
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["million", "yillar", "avlod", "uzoq", "jarayon", "asta", "sekin"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 40, "togri_dalil": 20, "tushuntirish": 40},
+        "izoh": "Evolyutsiya millionlab yillar davom etadigan jarayon. Bir avlodda kuzatiladigan o'zgarishlar juda kichik bo'ladi."
+      }
+    }
+  },
+
+  {
+    "model": "game.gamescenario",
+    "pk": 11,
+    "fields": {
+      "tur": 1, "tur_turi": "yolgon_top", "fan": 2,
+      "mazmun": {
+        "savol": "Buyuk Ipak yo'li haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "Buyuk Ipak yo'li orqali ipak, ziravorlar va qimmatbaho toshlar savdosi amalga oshirilgan."},
+          {"id": "D2", "matn": "Samarqand va Buxoro Buyuk Ipak yo'lining muhim markazlari bo'lgan."},
+          {"id": "D3", "matn": "Buyuk Ipak yo'li faqat dengiz orqali o'tgan va quruqlik yo'li bo'lmagan."}
+        ],
+        "togri_javob": "D3",
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["quruqlik", "yo'l", "dengiz", "emas", "faqat", "ham"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 60, "tushuntirish": 40},
+        "izoh": "Buyuk Ipak yo'li asosan quruqlik orqali o'tgan. Dengiz yo'li ham mavjud bo'lgan, lekin quruqlik yo'li asosiy edi."
+      }
+    }
+  },
+  {
+    "model": "game.gamescenario",
+    "pk": 12,
+    "fields": {
+      "tur": 2, "tur_turi": "yolgon_top", "fan": 2,
+      "mazmun": {
+        "savol": "Amir Temur haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "Amir Temur 1370-yilda Movarounnahrda hokimiyatni qo'lga kiritdi."},
+          {"id": "D2", "matn": "Temuriylar davrida Samarqand poytaxt bo'ldi va katta qurilish ishlari olib borildi."},
+          {"id": "D3", "matn": "Amir Temur Xitoyni zabt etib, imperiyasini Tinch okeangacha kengaytirdi."}
+        ],
+        "togri_javob": "D3",
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["xitoy", "zabt", "yurish", "vafot", "1405", "kengaytirmadi"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 60, "tushuntirish": 40},
+        "izoh": "Amir Temur Xitoyga yurish boshlagan, lekin 1405-yilda Sayram yaqinida vafot etdi. Xitoyni zabt etmadi."
+      }
+    }
+  },
+  {
+    "model": "game.gamescenario",
+    "pk": 13,
+    "fields": {
+      "tur": 3, "tur_turi": "detektiv", "fan": 2,
+      "mazmun": {
+        "savol": "Mo'g'ullar istilosi haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "Chingizxon 1220-yillarda Samarqand va Buxoroni vayron qildi."},
+          {"id": "D2", "matn": "Mo'g'ullar istilosi O'rta Osiyoda ilm-fan va madaniyatning keskin rivojlanishiga sabab bo'ldi."},
+          {"id": "D3", "matn": "Mo'g'ullar istilosi O'rta Osiyo aholisining katta qismi qirilishiga olib keldi."}
+        ],
+        "togri_javob": "D2",
+        "dalillar": [
+          {"id": "Dal1", "matn": "Yozma manbalar Samarqand, Buxoro, Urganch kabi shaharlarning to'la vayron qilinganini tasdiqlaydi."},
+          {"id": "Dal2", "matn": "XIII asr oxirida Movarounnahrning eng yirik shaharlari aholisi sezilarli darajada kamaydi."},
+          {"id": "Dal3", "matn": "Ko'pgina madrasa, kutubxona va sug'orish kanallari mo'g'ullar tomonidan buzildi."},
+          {"id": "Dal4", "matn": "Ilm-fan va madaniyatning qayta tiklanishi istilodan keyin 100-150 yil o'tib, Temuriylar davrida boshlandi."}
+        ],
+        "togri_dalillar": ["Dal1", "Dal3"],
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["vayron", "buzildi", "qayta", "temuriy", "keyinroq", "emas"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 40, "togri_dalil": 20, "tushuntirish": 40},
+        "izoh": "Mo'g'ullar istilosi shaharlarni vayron qildi. Madaniy rivojlanish istilodan yuz yil keyin Temuriylar davrida boshlandi."
+      }
+    }
+  },
+  {
+    "model": "game.gamescenario",
+    "pk": 14,
+    "fields": {
+      "tur": 4, "tur_turi": "detektiv", "fan": 2,
+      "mazmun": {
+        "savol": "Jadidlar harakati haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "Jadidlar XIX asr oxiri — XX asr boshida O'rta Osiyoda yangi usul maktablarini ochdi."},
+          {"id": "D2", "matn": "Jadidlar islohotlarga qarshi chiqqan va an'anaviy ta'limni himoya qilgan."},
+          {"id": "D3", "matn": "Jadidlar o'zbek va boshqa tillarda yangi matbuot nashrlari tashkil etdi."}
+        ],
+        "togri_javob": "D2",
+        "dalillar": [
+          {"id": "Dal1", "matn": "'Turon', 'Sadoi Turkiston' kabi jadid gazetalarida islohotga chaqiradigan maqolalar chop etildi."},
+          {"id": "Dal2", "matn": "Behbudiy, Fitrat va Avloniy kabi jadidlar zamonaviy ta'lim tizimini joriy etish uchun kurashdi."},
+          {"id": "Dal3", "matn": "Jadid maktablarida matematika, tarix va tabiiy fanlar o'qitildi — an'anaviy usuldan farqli ravishda."},
+          {"id": "Dal4", "matn": "Jadidlar Chor Rossiya mustamlakachiligi va diniy konservatizmga qarshi norozilik bildirdi."}
+        ],
+        "togri_dalillar": ["Dal2", "Dal3"],
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["yangi", "maktab", "islohot", "zamonaviy", "ta'lim", "jadid"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 40, "togri_dalil": 20, "tushuntirish": 40},
+        "izoh": "Jadidlar aynan islohotchi harakat edi. Ular an'anaviy ta'limni zamonaviy fan bilan almashtirish uchun kurashdi."
+      }
+    }
+  },
+  {
+    "model": "game.gamescenario",
+    "pk": 15,
+    "fields": {
+      "tur": 5, "tur_turi": "detektiv", "fan": 2,
+      "mazmun": {
+        "savol": "O'zbekiston mustaqilligi haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "O'zbekiston 1991-yil 1-sentabrda mustaqilligini e'lon qildi."},
+          {"id": "D2", "matn": "Islom Karimov O'zbekistonning birinchi prezidenti bo'ldi."},
+          {"id": "D3", "matn": "O'zbekiston mustaqillikdan so'ng darhol NATO ga a'zo bo'ldi."}
+        ],
+        "togri_javob": "D3",
+        "dalillar": [
+          {"id": "Dal1", "matn": "O'zbekiston MDH ga qo'shildi, lekin harbiy bloklarga nisbatan neytral siyosat yuritdi."},
+          {"id": "Dal2", "matn": "O'zbekiston hech qachon NATO ga a'zo bo'lmagan — NATO a'zoligi faqat Yevropa va Shimoliy Amerika uchun."},
+          {"id": "Dal3", "matn": "Mustaqillikdan so'ng O'zbekiston BMT va boshqa xalqaro tashkilotlarga a'zo bo'ldi, NATO emas."},
+          {"id": "Dal4", "matn": "1992-yilda qabul qilingan O'zbekiston Konstitutsiyasi mustaqil rivojlanish yo'lini belgiladi."}
+        ],
+        "togri_dalillar": ["Dal1", "Dal2"],
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["NATO", "MDH", "a'zo", "emas", "neytral", "mustaqil"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 40, "togri_dalil": 20, "tushuntirish": 40},
+        "izoh": "O'zbekiston hech qachon NATO ga a'zo bo'lmagan. Mustaqillikdan so'ng MDH ga qo'shildi va neytral siyosat yuritdi."
+      }
+    }
+  },
+
+  {
+    "model": "game.gamescenario",
+    "pk": 16,
+    "fields": {
+      "tur": 1, "tur_turi": "yolgon_top", "fan": 3,
+      "mazmun": {
+        "savol": "Kimyoviy elementlar haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "Oltin kimyoviy jihatdan juda inert (kam reaktiv) element hisoblanadi."},
+          {"id": "D2", "matn": "Temir magnit xossasiga ega eng keng tarqalgan metallardan biri."},
+          {"id": "D3", "matn": "Suvning kimyoviy formulasi H3O."}
+        ],
+        "togri_javob": "D3",
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["H2O", "ikki", "vodorod", "kislorod", "formula", "H3O", "noto'g'ri"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 60, "tushuntirish": 40},
+        "izoh": "Suvning formulasi H2O — 2 ta vodorod va 1 ta kislorod. H3O⁺ gidroksit ioni, oddiy suv emas."
+      }
+    }
+  },
+  {
+    "model": "game.gamescenario",
+    "pk": 17,
+    "fields": {
+      "tur": 2, "tur_turi": "yolgon_top", "fan": 3,
+      "mazmun": {
+        "savol": "Kimyoviy reaksiyalar haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "Yonish reaksiyasi kislorod ishtirokida amalga oshadi."},
+          {"id": "D2", "matn": "Neytrallanish reaksiyasida kislota va asos birlashib tuz va suv hosil qiladi."},
+          {"id": "D3", "matn": "Katalizator reaksiyaga kirishib, doimiy yangi kimyoviy modda hosil qiladi va sarflanadi."}
+        ],
+        "togri_javob": "D3",
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["katalizator", "sarflanmaydi", "tezlashtiradi", "o'zgarmaydi", "qaytariladi"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 60, "tushuntirish": 40},
+        "izoh": "Katalizator reaksiya tezligini oshiradi, lekin o'zi sarflanmaydi — reaksiya oxirida o'z holatida qoladi."
+      }
+    }
+  },
+  {
+    "model": "game.gamescenario",
+    "pk": 18,
+    "fields": {
+      "tur": 3, "tur_turi": "detektiv", "fan": 3,
+      "mazmun": {
+        "savol": "Mendeleev davriy jadvali haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "Mendeleev elementlarni atom massasiga ko'ra tartibga soldi."},
+          {"id": "D2", "matn": "Davriy jadval birinchi marta 1869-yilda nashr etildi."},
+          {"id": "D3", "matn": "Davriy jadvalda hozirda 200 dan ortiq kimyoviy element mavjud."}
+        ],
+        "togri_javob": "D3",
+        "dalillar": [
+          {"id": "Dal1", "matn": "2024-yil holatiga ko'ra davriy jadvalda 118 ta tasdiqlangan element mavjud."},
+          {"id": "Dal2", "matn": "Oxirgi tasdiqlangan element — 118-element oganesson — 2016-yilda IUPAC tomonidan tan olindi."},
+          {"id": "Dal3", "matn": "Mendeleev 1869-yilgi jadvalda 63 ta ma'lum elementni kiritdi va kashf etilmagan elementlar uchun joy qoldirdi."},
+          {"id": "Dal4", "matn": "Yangi elementlar kashf etilsa, ular davriy jadvalga qo'shiladi, lekin hozircha 200 dan oshgani yo'q."}
+        ],
+        "togri_dalillar": ["Dal1", "Dal2"],
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["118", "yuz", "o'n sakkiz", "oganesson", "IUPAC", "200", "emas"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 40, "togri_dalil": 20, "tushuntirish": 40},
+        "izoh": "Davriy jadvalda 118 ta element bor. 200 dan ortiq degan da'vo yolg'on."
+      }
+    }
+  },
+  {
+    "model": "game.gamescenario",
+    "pk": 19,
+    "fields": {
+      "tur": 4, "tur_turi": "detektiv", "fan": 3,
+      "mazmun": {
+        "savol": "Kislotalar va asoslar haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "Limon kislotasi va sirka kislotasi zaif kislotalar hisoblanadi."},
+          {"id": "D2", "matn": "pH ko'rsatkichi 0 dan 14 gacha o'zgaradi, 7 neytral hisoblanadi."},
+          {"id": "D3", "matn": "Kuchli kislotalar teriga tegsa hech qanday shikast yetkazmaydi."}
+        ],
+        "togri_javob": "D3",
+        "dalillar": [
+          {"id": "Dal1", "matn": "Sulfat kislota, xlorid kislota kabi kuchli kislotalar teriga tushsa kuyish hosil qiladi."},
+          {"id": "Dal2", "matn": "Kuchli kislotalar protonlarini to'liq ionizatsiya qiladi va juda reaktiv hisoblanadi."},
+          {"id": "Dal3", "matn": "Laboratoriyada kislotalar bilan ishlashda himoya ko'zoynak va qo'lqop kiyish majburiy."},
+          {"id": "Dal4", "matn": "Gidrofluorid kislota (HF) teriga singib suyak to'qimasini ham shikastlashi mumkin."}
+        ],
+        "togri_dalillar": ["Dal1", "Dal3"],
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["kuyish", "xavfli", "shikast", "himoya", "teriga", "zarari"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 40, "togri_dalil": 20, "tushuntirish": 40},
+        "izoh": "Kuchli kislotalar teriga kuyish yetkazadi. Laboratoriyada himoya vositalari kiyish majburiy."
+      }
+    }
+  },
+  {
+    "model": "game.gamescenario",
+    "pk": 20,
+    "fields": {
+      "tur": 5, "tur_turi": "detektiv", "fan": 3,
+      "mazmun": {
+        "savol": "Plastmassalar haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "Metan (CH4) eng oddiy uglevodorod hisoblanadi."},
+          {"id": "D2", "matn": "Ko'pgina plastmassalar bir necha hafta ichida to'liq tabiatda parchalanadi."},
+          {"id": "D3", "matn": "Neft asosan uglevodorod birikmalaridan iborat."}
+        ],
+        "togri_javob": "D2",
+        "dalillar": [
+          {"id": "Dal1", "matn": "Ko'pgina plastmassalar 400-1000 yil davomida parchalanmasligini tadqiqotlar ko'rsatmoqda."},
+          {"id": "Dal2", "matn": "Dengizlardagi plastik axlat to'planishi uning tez parchalanmasligini ko'rsatadi."},
+          {"id": "Dal3", "matn": "Laboratoriya sharoitida ham ko'pgina plastmassalar to'liq biogizuchilanmaydi."},
+          {"id": "Dal4", "matn": "Ba'zi maxsus bioplastiklar tezroq parchalansa-da, ular umumiy plastik ishlab chiqarishning juda kichik qismini tashkil etadi."}
+        ],
+        "togri_dalillar": ["Dal1", "Dal2"],
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["100", "yil", "uzoq", "dengiz", "to'planish", "sekin", "parchalanmaydi"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 40, "togri_dalil": 20, "tushuntirish": 40},
+        "izoh": "Plastmassalar tabiatda parchalanishi uchun yuzlab yillar kerak. Bir necha hafta degan da'vo yolg'on."
+      }
+    }
+  },
+
+  {
+    "model": "game.gamescenario",
+    "pk": 21,
+    "fields": {
+      "tur": 1, "tur_turi": "yolgon_top", "fan": 4,
+      "mazmun": {
+        "savol": "Pi (π) soni haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "Pi irratsional son hisoblanadi va cheksiz o'nli kasr sifatida yoziladi."},
+          {"id": "D2", "matn": "Pi aylana uzunligini diametrga nisbatini ifodalaydi."},
+          {"id": "D3", "matn": "Pi sonining aniq qiymati 22/7 ga teng."}
+        ],
+        "togri_javob": "D3",
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["yaqinlashtirilgan", "aniq", "emas", "3.14159", "irratsional", "22/7"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 60, "tushuntirish": 40},
+        "izoh": "22/7 faqat yaqinlashtirilgan qiymat. Pi = 3.14159... irratsional son bo'lib, 22/7 ≈ 3.142857 ga teng emas."
+      }
+    }
+  },
+  {
+    "model": "game.gamescenario",
+    "pk": 22,
+    "fields": {
+      "tur": 2, "tur_turi": "yolgon_top", "fan": 4,
+      "mazmun": {
+        "savol": "Geometriya haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "Pythagor teoremasi bo'yicha to'g'ri burchakli uchburchakda a²+b²=c² tengligi o'rinli."},
+          {"id": "D2", "matn": "Doira yuzi S = π×r² formulasi bilan hisoblanadi."},
+          {"id": "D3", "matn": "Barcha teng tomonli uchburchaklar to'g'ri burchakli hisoblanadi."}
+        ],
+        "togri_javob": "D3",
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["60", "daraja", "to'g'ri burchak", "90", "teng tomonli", "emas"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 60, "tushuntirish": 40},
+        "izoh": "Teng tomonli uchburchakdagi har bir burchak 60°. To'g'ri burchak esa 90°. Demak ular to'g'ri burchakli emas."
+      }
+    }
+  },
+  {
+    "model": "game.gamescenario",
+    "pk": 23,
+    "fields": {
+      "tur": 3, "tur_turi": "detektiv", "fan": 4,
+      "mazmun": {
+        "savol": "Statistika haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "O'rtacha (mean), median va moda — markaziy tendentsiyaning uch o'lchovi."},
+          {"id": "D2", "matn": "Korrelyatsiya koeffitsienti -1 dan +1 gacha bo'ladi."},
+          {"id": "D3", "matn": "Korrelyatsiya har doim ikki o'zgaruvchi o'rtasidagi sabab-natija aloqasini bildiradi."}
+        ],
+        "togri_javob": "D3",
+        "dalillar": [
+          {"id": "Dal1", "matn": "Muzqaymoq savdosi va cho'kish hodisalari o'rtasida yuqori korrelyatsiya bor — ikkalasi ham yozda ko'payadi, lekin biri ikkinchisiga sabab emas."},
+          {"id": "Dal2", "matn": "Statistikada 'korrelyatsiya sabab-natija emas' — bu fundamental tamoyillardan biri."},
+          {"id": "Dal3", "matn": "Yashirin o'zgaruvchi (masalan, issiq ob-havo) ikkala hodisani ham keltirib chiqarishi mumkin."},
+          {"id": "Dal4", "matn": "Soxta korrelyatsiyalar statistik tahlilning eng keng tarqalgan xatolaridan biri hisoblanadi."}
+        ],
+        "togri_dalillar": ["Dal1", "Dal2"],
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["sabab", "natija", "emas", "yashirin", "korrelyatsiya", "bog'liq"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 40, "togri_dalil": 20, "tushuntirish": 40},
+        "izoh": "Korrelyatsiya ikkita o'zgaruvchining birgalikda o'zgarishini ko'rsatadi, sabab-natija aloqasini emas."
+      }
+    }
+  },
+  {
+    "model": "game.gamescenario",
+    "pk": 24,
+    "fields": {
+      "tur": 4, "tur_turi": "detektiv", "fan": 4,
+      "mazmun": {
+        "savol": "Sonlar nazariyasi haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "Tub sonlar faqat 1 ga va o'ziga bo'linadigan musbat butun sonlar."},
+          {"id": "D2", "matn": "1 soni tub son hisoblanadi."},
+          {"id": "D3", "matn": "Juft tub son faqat bitta — bu 2 soni."}
+        ],
+        "togri_javob": "D2",
+        "dalillar": [
+          {"id": "Dal1", "matn": "Tub son ta'rifiga ko'ra u aynan ikkita va faqat ikkita bo'luvchiga ega: 1 va o'zi. 1 sonida faqat bitta bo'luvchi bor."},
+          {"id": "Dal2", "matn": "Fundamental arifmetika teoremasi har bir musbat butun sonning tub sonlar ko'paytmasi ekanligi asosida qurilgan — 1 tub son bo'lsa bu teorema buziladi."},
+          {"id": "Dal3", "matn": "Zamonaviy matematik standartlarda 1 soni tub sonlar ro'yxatiga kiritilmaydi."},
+          {"id": "Dal4", "matn": "2000-yilgacha ba'zi kitoblarda 1 tub son sifatida ko'rsatilgan, lekin hozirgi ta'rifda u tub son emas."}
+        ],
+        "togri_dalillar": ["Dal1", "Dal2"],
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["bitta", "bo'luvchi", "ta'rif", "mos", "emas", "ikkita"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 40, "togri_dalil": 20, "tushuntirish": 40},
+        "izoh": "1 tub son emas. Tub son ta'rifi bo'yicha aynan ikkita bo'luvchi bo'lishi kerak (1 va o'zi). 1 ning faqat bitta bo'luvchisi bor."
+      }
+    }
+  },
+  {
+    "model": "game.gamescenario",
+    "pk": 25,
+    "fields": {
+      "tur": 5, "tur_turi": "detektiv", "fan": 4,
+      "mazmun": {
+        "savol": "Kvadrat tenglamalar haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "Kvadrat tenglamaning ildizlari diskriminant yordamida topiladi."},
+          {"id": "D2", "matn": "Har qanday kvadrat tenglama har doim ikkita haqiqiy ildizga ega."},
+          {"id": "D3", "matn": "Diskriminant manfiy bo'lsa, tenglamaning haqiqiy ildizlari yo'q."}
+        ],
+        "togri_javob": "D2",
+        "dalillar": [
+          {"id": "Dal1", "matn": "x²+1=0 tenglamasining haqiqiy ildizlari yo'q, chunki diskriminant D=0-4=-4<0."},
+          {"id": "Dal2", "matn": "x²-2x+1=0 tenglamasida D=4-4=0, ya'ni faqat bitta ildiz: x=1."},
+          {"id": "Dal3", "matn": "Haqiqiy ildizlar soni diskriminantga bog'liq: D>0 — 2 ta, D=0 — 1 ta, D<0 — haqiqiy ildiz yo'q."},
+          {"id": "Dal4", "matn": "Manfiy diskriminantli tenglamalarning kompleks sonlar olamida ildizlari mavjud, lekin haqiqiy son sifatida emas."}
+        ],
+        "togri_dalillar": ["Dal1", "Dal3"],
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["diskriminant", "manfiy", "ildiz", "yo'q", "bitta", "ikkita", "D<0"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 40, "togri_dalil": 20, "tushuntirish": 40},
+        "izoh": "Diskriminant manfiy bo'lsa haqiqiy ildiz yo'q, nolga teng bo'lsa bitta. 'Har doim ikkita' degan da'vo yolg'on."
+      }
+    }
+  },
+
+  {
+    "model": "game.gamescenario",
+    "pk": 26,
+    "fields": {
+      "tur": 1, "tur_turi": "yolgon_top", "fan": 5,
+      "mazmun": {
+        "savol": "Alisher Navoiy haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "Alisher Navoiy XV asrda Hirot shahrida yashab ijod qilgan."},
+          {"id": "D2", "matn": "Navoiy o'zbek adabiy tilining shakllanishiga katta hissa qo'shgan."},
+          {"id": "D3", "matn": "Navoiy faqat forsiy tilda ijod qilgan va o'zbek tilida asarlar yaratmagan."}
+        ],
+        "togri_javob": "D3",
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["turkiy", "chig'atoy", "o'zbek", "ham", "farscha", "ikkala", "til"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 60, "tushuntirish": 40},
+        "izoh": "Navoiy turkiy (chig'atoy) tilda ko'plab asarlar yozdi. Forsiy tilda ham ijod qilgan, lekin faqat forsiy emas."
+      }
+    }
+  },
+  {
+    "model": "game.gamescenario",
+    "pk": 27,
+    "fields": {
+      "tur": 2, "tur_turi": "yolgon_top", "fan": 5,
+      "mazmun": {
+        "savol": "She'r shakllari haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "G'azal — sharq she'riyatidagi lirik janr bo'lib, har bayt mustaqil mazmunni ifodalashi mumkin."},
+          {"id": "D2", "matn": "Sonet — 14 satrdan iborat Yevropa she'r shakli."},
+          {"id": "D3", "matn": "Ruboiy — to'rt misrali she'r shakli bo'lib, Xitoy she'riyatida kelib chiqqan."}
+        ],
+        "togri_javob": "D3",
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["fors", "tojik", "yaqin sharq", "arab", "xitoy", "emas", "kelib chiqqan"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 60, "tushuntirish": 40},
+        "izoh": "Ruboiy fors-tojik va turkiy she'riyatda kelib chiqqan (Yaqin Sharq). Xitoydan emas."
+      }
+    }
+  },
+  {
+    "model": "game.gamescenario",
+    "pk": 28,
+    "fields": {
+      "tur": 3, "tur_turi": "detektiv", "fan": 5,
+      "mazmun": {
+        "savol": "Abdulla Qodiriy ijodi haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "Abdulla Qodiriy 'O'tkan kunlar' va 'Mehrobdan chayon' romanlarining muallifi."},
+          {"id": "D2", "matn": "Qodiriy sovet davrida repressiyaga uchradi."},
+          {"id": "D3", "matn": "Qodiriy o'z romanlarida faqat kommunist g'oyalarni va sovet siyosatini ulug'ladi."}
+        ],
+        "togri_javob": "D3",
+        "dalillar": [
+          {"id": "Dal1", "matn": "'O'tkan kunlar' (1926) romanida o'zbek milliy madaniyati va tarixiy hayoti realistik tasvirlangan."},
+          {"id": "Dal2", "matn": "Qodiriy 1937-yilda qamoqqa olinib, 1938-yilda otib o'ldirildi — kommunist mafkurani ulug'lamagani uchun."},
+          {"id": "Dal3", "matn": "Uning asarlari milliy uyg'onish ruhini aks ettirib, milliy qadriyatlar va tariximizga bag'ishlangan."},
+          {"id": "Dal4", "matn": "Qodiriy Jadid harakati vakili sifatida milliy mustaqillik g'oyalarini targ'ib qildi."}
+        ],
+        "togri_dalillar": ["Dal2", "Dal3"],
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["milliy", "qadriyat", "jadid", "repressiya", "qatag'on", "tarix"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 40, "togri_dalil": 20, "tushuntirish": 40},
+        "izoh": "Qodiriy kommunist mafkurani emas, milliy qadriyatlarni ulug'ladi. Shuning uchun repressiyaga uchradi."
+      }
+    }
+  },
+  {
+    "model": "game.gamescenario",
+    "pk": 29,
+    "fields": {
+      "tur": 4, "tur_turi": "detektiv", "fan": 5,
+      "mazmun": {
+        "savol": "O'zbek xalq ertaklari haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "O'zbek xalq ertaklari avloddan avlodga og'zaki ravishda uzatilgan."},
+          {"id": "D2", "matn": "Ertaklar faqat bolalar uchun mo'ljallangan va katta yoshlilar uchun ahamiyati yo'q."},
+          {"id": "D3", "matn": "O'zbek ertaklarida odatda yaxshilik yomonlik ustidan g'alaba qozonadi."}
+        ],
+        "togri_javob": "D2",
+        "dalillar": [
+          {"id": "Dal1", "matn": "Ertaklarda ijtimoiy munosabatlar va tarixiy vaziyatlar aks etadi — bu kattalar uchun ham muhim ma'no."},
+          {"id": "Dal2", "matn": "Etnograflar ertaklarni milliy madaniyat va tarixiy xotiraning bir qismi sifatida o'rganadilar."},
+          {"id": "Dal3", "matn": "'Tohir va Zuhra' kabi ertaklar katta yoshlilar uchun mo'ljallangan muhabbat va kurash haqidagi rivoyatlar."},
+          {"id": "Dal4", "matn": "Ertaklar tarbiyaviy, axloqiy va ijtimoiy-tanqidiy vazifalarni bajaradi — bu faqat bolalarga tegishli emas."}
+        ],
+        "togri_dalillar": ["Dal2", "Dal3"],
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["katta", "yoshli", "madaniyat", "ijtimoiy", "axloqiy", "tarbiyaviy"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 40, "togri_dalil": 20, "tushuntirish": 40},
+        "izoh": "Ertaklar katta yoshlilar uchun ham muhim — ular milliy madaniyat, axloq va ijtimoiy tajribani saqlab keladi."
+      }
+    }
+  },
+  {
+    "model": "game.gamescenario",
+    "pk": 30,
+    "fields": {
+      "tur": 5, "tur_turi": "detektiv", "fan": 5,
+      "mazmun": {
+        "savol": "Jahon adabiyoti klassiklariga oid qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "Shekspir 'Hamlet', 'Romeo va Juletta' va 'Makbet' asarlarining muallifi."},
+          {"id": "D2", "matn": "Dante Aligeri 'Ilohiy komediya'ni lotincha yozgan."},
+          {"id": "D3", "matn": "Lev Tolstoy 'Urush va tinchlik' romanining muallifi."}
+        ],
+        "togri_javob": "D2",
+        "dalillar": [
+          {"id": "Dal1", "matn": "Dante 'Ilohiy komediya'ni XIV asrda o'sha davrda xalq tili hisoblangan italyan tilida (toskan shevasi) yozdi."},
+          {"id": "Dal2", "matn": "Dante bu asarni ataylab xalq tiliga yozdi — barcha uchun tushunarli bo'lsin deb, lotincha olimlar uchun emas."},
+          {"id": "Dal3", "matn": "'Ilohiy komediya'ning italyan tilidagi yozilishi italyan adabiy tilining shakllanishiga katta hissa qo'shdi."},
+          {"id": "Dal4", "matn": "Dante zamonasida akademik asarlar lotincha yozilardi, lekin u bu an'anadan ataylab chetlashdi."}
+        ],
+        "togri_dalillar": ["Dal1", "Dal2"],
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["italyan", "xalq", "tili", "lotin", "emas", "toskan", "ataylab"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 40, "togri_dalil": 20, "tushuntirish": 40},
+        "izoh": "Dante 'Ilohiy komediya'ni italyan (toskan) tilida yozdi. Lotin tili emas, xalq tili bilan yozib, italyan adabiy tilini shakllantirdi."
+      }
+    }
+  }
+]

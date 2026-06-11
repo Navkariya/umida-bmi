@@ -1,0 +1,27 @@
+[
+  {
+    "model": "game.fan",
+    "pk": 1,
+    "fields": { "nom": "Biologiya", "emoji": "🔬", "rang": "#3fe1b0" }
+  },
+  {
+    "model": "game.fan",
+    "pk": 2,
+    "fields": { "nom": "Tarix", "emoji": "🌍", "rang": "#FFA537" }
+  },
+  {
+    "model": "game.fan",
+    "pk": 3,
+    "fields": { "nom": "Kimyo", "emoji": "🧪", "rang": "#d64cf1" }
+  },
+  {
+    "model": "game.fan",
+    "pk": 4,
+    "fields": { "nom": "Matematika", "emoji": "🔢", "rang": "#0290ee" }
+  },
+  {
+    "model": "game.fan",
+    "pk": 5,
+    "fields": { "nom": "Adabiyot", "emoji": "📖", "rang": "#ff7139" }
+  }
+]

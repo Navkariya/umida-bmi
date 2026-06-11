@@ -80,8 +80,12 @@ export default function GamePlay() {
       return;
     }
     const student: StudentLoginResponse = JSON.parse(raw) as StudentLoginResponse;
+    const fanRaw = sessionStorage.getItem("bmi_fan");
+    const fanId: number | null = fanRaw
+      ? ((JSON.parse(fanRaw) as { fan_id: number }).fan_id ?? null)
+      : null;
     setState((s) => ({ ...s, student_id: student.student_id, ism: student.ism, phase: "loading" }));
-    fetchScenarios(student.student_id)
+    fetchScenarios(student.student_id, fanId)
       .then((data) => {
         setState((s) => ({
           ...s,
@@ -191,6 +195,7 @@ export default function GamePlay() {
 
   const handlePlayAgain = () => {
     sessionStorage.removeItem("bmi_student");
+    sessionStorage.removeItem("bmi_fan");
     router.push("/game");
   };
 

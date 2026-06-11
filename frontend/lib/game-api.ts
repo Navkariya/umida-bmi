@@ -107,11 +107,25 @@ export function studentLogin(
   return post<StudentLoginResponse>("/api/students/login/", { kirish_kodi });
 }
 
+export interface Fan {
+  fan_id: number;
+  nom: string;
+  emoji: string;
+  rang: string;
+}
+
+export function fetchFanlar(): Promise<Fan[]> {
+  return get<Fan[]>("/api/game/fanlar/");
+}
+
 export function fetchScenarios(
   student_id?: string | null,
+  fan_id?: number | null,
 ): Promise<ScenariosResponse> {
-  const qs =
-    student_id ? `?student_id=${encodeURIComponent(student_id)}` : "";
+  const params = new URLSearchParams();
+  if (student_id) params.set("student_id", student_id);
+  if (fan_id) params.set("fan_id", String(fan_id));
+  const qs = params.toString() ? `?${params.toString()}` : "";
   return get<ScenariosResponse>(`/api/game/scenarios/${qs}`);
 }
 
