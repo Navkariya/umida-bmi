@@ -5,6 +5,12 @@ import { useState } from "react";
 
 import { studentLogin } from "@/lib/game-api";
 
+const FEATURES = [
+  { icon: "🔍", label: "Yolg'onni top", bg: "#ebfcff", color: "#0290ee", border: "#00b3f5" },
+  { icon: "🕵️", label: "Dalilchi Detektiv", bg: "#fff4de", color: "#ff7139", border: "#FE8A4F" },
+  { icon: "💬", label: "Sokrat suhbati", bg: "#f7e3ff", color: "#b933e1", border: "#d64cf1" },
+];
+
 export default function GameLogin() {
   const router = useRouter();
   const [kirish_kodi, setKirishKodi] = useState("");
@@ -26,62 +32,114 @@ export default function GameLogin() {
   };
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-md flex-col justify-center gap-8 px-6">
-      <header className="space-y-2">
-        <p className="text-xs font-semibold uppercase tracking-widest text-sky-400">
-          BMI demo
-        </p>
-        <h1 className="text-2xl font-bold text-[#e6e9f0]">
-          Dalilchi Detektiv
-        </h1>
-        <p className="text-sm text-slate-400">
-          5 raundlik o&apos;yin: yolg&apos;onni toping, dalillarni tanlab izohlang.
-        </p>
-      </header>
-
-      <section className="rounded-xl border border-slate-700 bg-slate-900/60 p-6 space-y-4">
-        <div className="space-y-2">
-          <label className="text-xs font-semibold uppercase tracking-widest text-slate-400">
-            Kirish kodi
-          </label>
-          <input
-            type="text"
-            value={kirish_kodi}
-            onChange={(e) => setKirishKodi(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && handleLogin(kirish_kodi)}
-            placeholder="Kodingizni kiriting…"
-            className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-[#e6e9f0] placeholder-slate-600 focus:border-sky-600 focus:outline-none"
-          />
-        </div>
-
-        {error && (
-          <p className="rounded-lg border border-rose-800 bg-rose-950/50 px-4 py-2 text-sm text-rose-300">
-            {error}
+    <main className="min-h-screen" style={{ background: "#f0f4f8" }}>
+      <div className="mx-auto max-w-md px-6 py-14">
+        {/* Logo / Icon */}
+        <div className="mb-8 flex flex-col items-center text-center">
+          <div
+            className="mb-4 flex h-20 w-20 items-center justify-center rounded-3xl text-4xl"
+            style={{ background: "#00b3f5", boxShadow: "0 6px 0 #0290ee" }}
+          >
+            🧠
+          </div>
+          <h1 className="text-3xl font-extrabold" style={{ color: "#2c2c2c" }}>
+            BMI O&apos;yini
+          </h1>
+          <p className="mt-1 text-sm font-semibold" style={{ color: "#8e8e8e" }}>
+            5 raundlik mustaqil fikrlash sayohati
           </p>
-        )}
-
-        <button
-          onClick={() => handleLogin(kirish_kodi)}
-          disabled={isLoading || kirish_kodi.trim().length === 0}
-          className="w-full rounded-lg bg-sky-600 px-6 py-3 font-semibold text-white transition-opacity disabled:opacity-40 hover:bg-sky-500"
-        >
-          {isLoading ? "Kirilmoqda…" : "Kirish"}
-        </button>
-
-        <div className="relative flex items-center">
-          <div className="flex-1 border-t border-slate-800" />
-          <span className="px-3 text-xs text-slate-600">yoki</span>
-          <div className="flex-1 border-t border-slate-800" />
         </div>
 
-        <button
-          onClick={() => handleLogin("")}
-          disabled={isLoading}
-          className="w-full rounded-lg border border-slate-700 px-6 py-3 text-sm text-slate-300 transition-colors hover:border-slate-500 hover:text-white"
+        {/* Feature chips */}
+        <div className="mb-6 flex flex-wrap justify-center gap-2">
+          {FEATURES.map((f) => (
+            <div
+              key={f.label}
+              className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold"
+              style={{ background: f.bg, color: f.color, border: `2px solid ${f.border}` }}
+            >
+              {f.icon} {f.label}
+            </div>
+          ))}
+        </div>
+
+        {/* Card */}
+        <div
+          className="rounded-2xl bg-white p-6"
+          style={{ border: "2px solid #e1e1e1", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}
         >
-          Mehmon sifatida kirish
-        </button>
-      </section>
+          <div className="space-y-4">
+            <div>
+              <label
+                className="mb-1.5 block text-xs font-bold uppercase tracking-wider"
+                style={{ color: "#6e6e6e" }}
+              >
+                Kirish kodi
+              </label>
+              <input
+                type="text"
+                value={kirish_kodi}
+                onChange={(e) => setKirishKodi(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && handleLogin(kirish_kodi)}
+                placeholder="Kodingizni kiriting…"
+                className="w-full rounded-xl px-4 py-3 text-sm font-semibold outline-none transition-all"
+                style={{
+                  border: "2px solid #e1e1e1",
+                  background: "#fafafa",
+                  color: "#2c2c2c",
+                }}
+                onFocus={(e) => {
+                  e.target.style.borderColor = "#00b3f5";
+                  e.target.style.background = "#fff";
+                }}
+                onBlur={(e) => {
+                  e.target.style.borderColor = "#e1e1e1";
+                  e.target.style.background = "#fafafa";
+                }}
+              />
+            </div>
+
+            {error && (
+              <div
+                className="rounded-xl px-4 py-2.5 text-sm font-semibold"
+                style={{ background: "#ffe0e8", color: "#e02950", border: "2px solid #ff505f" }}
+              >
+                {error}
+              </div>
+            )}
+
+            <button
+              onClick={() => handleLogin(kirish_kodi)}
+              disabled={isLoading || kirish_kodi.trim().length === 0}
+              className="w-full rounded-xl py-3.5 font-bold text-white transition-transform active:translate-y-1 disabled:opacity-40"
+              style={{ background: "#00b3f5", boxShadow: "0 4px 0 #0290ee" }}
+            >
+              {isLoading ? "Kirilmoqda…" : "Kirish →"}
+            </button>
+
+            <div className="flex items-center gap-3">
+              <div className="h-px flex-1" style={{ background: "#e1e1e1" }} />
+              <span className="text-xs font-semibold" style={{ color: "#b3b3b3" }}>
+                yoki
+              </span>
+              <div className="h-px flex-1" style={{ background: "#e1e1e1" }} />
+            </div>
+
+            <button
+              onClick={() => handleLogin("")}
+              disabled={isLoading}
+              className="w-full rounded-xl py-3.5 text-sm font-bold transition-transform active:translate-y-0.5 disabled:opacity-40"
+              style={{
+                background: "#eaeaea",
+                color: "#4b4b4b",
+                boxShadow: "0 4px 0 #cacaca",
+              }}
+            >
+              Mehmon sifatida kirish
+            </button>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }

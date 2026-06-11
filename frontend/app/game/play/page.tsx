@@ -16,7 +16,7 @@ import {
 } from "@/lib/game-api";
 import { INITIAL_STATE, type GameState, type RoundResult } from "@/lib/game-state";
 
-function ProgressDots({
+function ProgressSteps({
   current,
   total,
   results,
@@ -26,18 +26,39 @@ function ProgressDots({
   results: RoundResult[];
 }) {
   return (
-    <div className="flex justify-center gap-2">
+    <div className="flex items-center">
       {Array.from({ length: total }).map((_, i) => {
         const done = i < results.length;
         const active = i === current;
         return (
-          <span
-            key={i}
-            className={[
-              "h-2.5 w-2.5 rounded-full transition-all",
-              done ? "bg-emerald-500" : active ? "bg-sky-400 scale-125" : "bg-slate-700",
-            ].join(" ")}
-          />
+          <div key={i} className="flex items-center">
+            <div
+              className="flex h-9 w-9 items-center justify-center rounded-full text-sm font-extrabold transition-all"
+              style={{
+                background: done ? "#3fe1b0" : active ? "#00b3f5" : "#eaeaea",
+                color: done || active ? "white" : "#b3b3b3",
+                border: done
+                  ? "2px solid #2bc4a2"
+                  : active
+                    ? "2px solid #0290ee"
+                    : "2px solid #cacaca",
+                transform: active ? "scale(1.15)" : "scale(1)",
+                boxShadow: done
+                  ? "0 3px 0 #2bc4a2"
+                  : active
+                    ? "0 3px 0 #0290ee"
+                    : "0 3px 0 #cacaca",
+              }}
+            >
+              {done ? "✓" : i + 1}
+            </div>
+            {i < total - 1 && (
+              <div
+                className="h-1.5 w-8 rounded-full transition-all"
+                style={{ background: i < results.length ? "#3fe1b0" : "#eaeaea" }}
+              />
+            )}
+          </div>
         );
       })}
     </div>
@@ -83,11 +104,7 @@ export default function GamePlay() {
     if (next >= 5) {
       completeGame(sessiya_id)
         .then((resp) => {
-          setState((s) => ({
-            ...s,
-            phase: "complete",
-            total_ball: resp.jami_ball,
-          }));
+          setState((s) => ({ ...s, phase: "complete", total_ball: resp.jami_ball }));
         })
         .catch(() => {
           setState((s) => ({
@@ -101,11 +118,7 @@ export default function GamePlay() {
     }
   };
 
-  const handleRoundSubmit = async (
-    davo: string,
-    dalillar: string[],
-    tushuntirish: string,
-  ) => {
+  const handleRoundSubmit = async (davo: string, dalillar: string[], tushuntirish: string) => {
     if (!state.sessiya_id) return;
     const scenario = state.scenarios[state.current_tur];
     setIsSubmitting(true);
@@ -139,11 +152,7 @@ export default function GamePlay() {
           });
           setCurrentSavol(sr.savol);
           setCurrentNavbat(sr.navbat);
-          setState((s) => ({
-            ...s,
-            socratic_sessiya_id: sr.sessiya_id,
-            phase: "socratic",
-          }));
+          setState((s) => ({ ...s, socratic_sessiya_id: sr.sessiya_id, phase: "socratic" }));
         } finally {
           setSocraticLoading(false);
         }
@@ -159,15 +168,11 @@ export default function GamePlay() {
     if (!state.socratic_sessiya_id) return;
     setSocraticLoading(true);
     try {
-      const resp = await socraticReply({
-        sessiya_id: state.socratic_sessiya_id,
-        javob,
-      });
+      const resp = await socraticReply({ sessiya_id: state.socratic_sessiya_id, javob });
       if (resp.tugadimi) {
         setState((s) => ({ ...s, phase: "socratic" }));
         setCurrentSavol("");
         setCurrentNavbat(resp.navbat);
-        // Show done state briefly then advance
         setTimeout(() => {
           advanceRound(state.results, state.sessiya_id!);
         }, 1800);
@@ -191,10 +196,15 @@ export default function GamePlay() {
 
   if (state.phase === "loading") {
     return (
-      <main className="flex min-h-screen items-center justify-center">
+      <main className="flex min-h-screen items-center justify-center" style={{ background: "#f0f4f8" }}>
         <div className="text-center">
-          <div className="mx-auto mb-4 h-8 w-8 animate-spin rounded-full border-2 border-sky-400 border-t-transparent" />
-          <p className="text-sm text-slate-400">Yuklanmoqda…</p>
+          <div
+            className="mx-auto mb-4 h-12 w-12 animate-spin rounded-full"
+            style={{ border: "3px solid #eaeaea", borderTopColor: "#00b3f5" }}
+          />
+          <p className="text-sm font-bold" style={{ color: "#8e8e8e" }}>
+            Yuklanmoqda…
+          </p>
         </div>
       </main>
     );
@@ -202,7 +212,7 @@ export default function GamePlay() {
 
   if (state.phase === "complete") {
     return (
-      <main className="mx-auto min-h-screen max-w-lg px-6 py-12">
+      <main className="mx-auto min-h-screen max-w-lg px-6 py-12" style={{ background: "#f0f4f8" }}>
         <ScoreCard
           ism={state.ism || "Mehmon"}
           total_ball={state.total_ball}
@@ -217,25 +227,30 @@ export default function GamePlay() {
   const scenario = state.scenarios[state.current_tur];
 
   return (
-    <main className="mx-auto min-h-screen max-w-lg px-6 py-10">
-      <div className="mb-8 space-y-3">
-        <div className="flex items-center justify-between text-xs text-slate-500">
-          <span>{state.ism || "Mehmon"}</span>
-          <span>
-            {state.results.reduce((a, r) => a + r.ball, 0)} ball
+    <main className="mx-auto min-h-screen max-w-lg px-6 py-8" style={{ background: "#f0f4f8" }}>
+      {/* Header */}
+      <div className="mb-6 space-y-3">
+        <div className="flex items-center justify-between">
+          <span className="text-sm font-bold" style={{ color: "#4b4b4b" }}>
+            {state.ism || "Mehmon"}
           </span>
+          <div
+            className="flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-extrabold"
+            style={{ background: "#ffffdd", color: "#FFA537", border: "2px solid #FFBD4F" }}
+          >
+            ⭐ {state.results.reduce((a, r) => a + r.ball, 0)} ball
+          </div>
         </div>
-        <ProgressDots
-          current={state.current_tur}
-          total={5}
-          results={state.results}
-        />
+        <ProgressSteps current={state.current_tur} total={5} results={state.results} />
       </div>
 
       {state.error && (
-        <p className="mb-4 rounded-lg border border-rose-800 bg-rose-950/50 px-4 py-2 text-sm text-rose-300">
+        <div
+          className="mb-4 rounded-xl px-4 py-3 text-sm font-semibold"
+          style={{ background: "#ffe0e8", color: "#e02950", border: "2px solid #ff505f" }}
+        >
           {state.error}
-        </p>
+        </div>
       )}
 
       {scenario &&
@@ -243,9 +258,7 @@ export default function GamePlay() {
           <LieDetector
             scenario={scenario}
             tur={state.current_tur + 1}
-            onSubmit={(davo, tushuntirish) =>
-              handleRoundSubmit(davo, [], tushuntirish)
-            }
+            onSubmit={(davo, tushuntirish) => handleRoundSubmit(davo, [], tushuntirish)}
             isSubmitting={isSubmitting}
           />
         ) : (

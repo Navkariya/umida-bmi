@@ -11,16 +11,9 @@ interface Props {
   isSubmitting: boolean;
 }
 
-export default function Detective({
-  scenario,
-  tur,
-  onSubmit,
-  isSubmitting,
-}: Props) {
+export default function Detective({ scenario, tur, onSubmit, isSubmitting }: Props) {
   const [selected, setSelected] = useState<string | null>(null);
-  const [selectedDalillar, setSelectedDalillar] = useState<Set<string>>(
-    new Set(),
-  );
+  const [selectedDalillar, setSelectedDalillar] = useState<Set<string>>(new Set());
   const [tushuntirish, setTushuntirish] = useState("");
 
   const toggleDalil = (id: string) => {
@@ -39,57 +32,81 @@ export default function Detective({
     tushuntirish.trim().length >= 10;
 
   return (
-    <div className="space-y-6">
-      <div>
-        <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-amber-400">
-          Raund {tur} / 5 — Dalilchi Detektiv
-        </p>
-        <p className="text-lg font-semibold text-[#e6e9f0]">
+    <div className="space-y-5">
+      {/* Badge */}
+      <div
+        className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold"
+        style={{ background: "#fff4de", color: "#ff7139", border: "2px solid #FE8A4F" }}
+      >
+        🕵️ Raund {tur} / 5 — Dalilchi Detektiv
+      </div>
+
+      {/* Question */}
+      <div className="rounded-2xl bg-white p-5" style={{ border: "2px solid #e1e1e1" }}>
+        <p className="text-base font-bold leading-relaxed" style={{ color: "#2c2c2c" }}>
           {scenario.mazmun.savol}
         </p>
       </div>
 
-      <div className="space-y-3">
-        <p className="text-xs font-semibold uppercase tracking-widest text-slate-400">
+      {/* Choices */}
+      <div className="space-y-2.5">
+        <p className="text-xs font-bold uppercase tracking-wider" style={{ color: "#6e6e6e" }}>
           Qaysi da&apos;vo yolg&apos;on?
         </p>
         {scenario.mazmun.davolar.map((davo) => (
           <button
             key={davo.id}
             onClick={() => setSelected(davo.id)}
-            className={[
-              "w-full rounded-lg border px-4 py-3 text-left text-sm transition-colors",
+            className="w-full rounded-xl px-4 py-3.5 text-left text-sm font-semibold transition-all"
+            style={
               selected === davo.id
-                ? "border-amber-500 bg-amber-900/30 text-amber-200"
-                : "border-slate-700 bg-slate-900/60 text-slate-300 hover:border-slate-500",
-            ].join(" ")}
+                ? { background: "#fff4de", border: "2px solid #ff7139", color: "#ff7139" }
+                : { background: "white", border: "2px solid #e1e1e1", color: "#4b4b4b" }
+            }
           >
-            <span className="mr-2 font-mono text-slate-500">{davo.id}</span>
+            <span
+              className="mr-2.5 inline-flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold"
+              style={
+                selected === davo.id
+                  ? { background: "#ff7139", color: "white" }
+                  : { background: "#eaeaea", color: "#6e6e6e" }
+              }
+            >
+              {davo.id}
+            </span>
             {davo.matn}
           </button>
         ))}
       </div>
 
+      {/* Evidence */}
       {scenario.mazmun.dalillar && scenario.mazmun.dalillar.length > 0 && (
-        <div className="space-y-3">
-          <p className="text-xs font-semibold uppercase tracking-widest text-slate-400">
-            Qo&apos;llab-quvvatlovchi dalillarni tanlang
+        <div className="space-y-2.5">
+          <p className="text-xs font-bold uppercase tracking-wider" style={{ color: "#6e6e6e" }}>
+            Qo&apos;llab-quvvatlovchi dalillar
           </p>
-          <div className="grid gap-3 sm:grid-cols-2">
+          <div className="grid gap-2.5 sm:grid-cols-2">
             {scenario.mazmun.dalillar.map((dalil) => {
               const active = selectedDalillar.has(dalil.id);
               return (
                 <button
                   key={dalil.id}
                   onClick={() => toggleDalil(dalil.id)}
-                  className={[
-                    "rounded-lg border p-3 text-left text-xs transition-colors",
+                  className="rounded-xl p-3 text-left text-xs font-semibold transition-all"
+                  style={
                     active
-                      ? "border-amber-500 bg-amber-900/30 text-amber-200"
-                      : "border-slate-700 bg-slate-900/60 text-slate-400 hover:border-slate-500",
-                  ].join(" ")}
+                      ? { background: "#fff4de", border: "2px solid #ff7139", color: "#ff7139" }
+                      : { background: "white", border: "2px solid #e1e1e1", color: "#6e6e6e" }
+                  }
                 >
-                  <span className="mr-1 font-mono text-slate-600">
+                  <span
+                    className="mr-1.5 inline-flex h-4 w-4 items-center justify-center rounded-full text-[10px] font-bold"
+                    style={
+                      active
+                        ? { background: "#ff7139", color: "white" }
+                        : { background: "#eaeaea", color: "#6e6e6e" }
+                    }
+                  >
                     {dalil.id}
                   </span>
                   {dalil.matn}
@@ -100,8 +117,9 @@ export default function Detective({
         </div>
       )}
 
-      <div className="space-y-2">
-        <label className="text-xs font-semibold uppercase tracking-widest text-slate-400">
+      {/* Explanation */}
+      <div className="space-y-1.5">
+        <label className="text-xs font-bold uppercase tracking-wider" style={{ color: "#6e6e6e" }}>
           Dalillar asosida izohlaymiz
         </label>
         <textarea
@@ -109,22 +127,26 @@ export default function Detective({
           onChange={(e) => setTushuntirish(e.target.value)}
           rows={3}
           placeholder="Kamida 10 ta belgi yozing…"
-          className="w-full resize-none rounded-lg border border-slate-700 bg-slate-900/60 px-4 py-3 text-sm text-[#e6e9f0] placeholder-slate-600 focus:border-amber-600 focus:outline-none"
+          className="w-full resize-none rounded-xl px-4 py-3 text-sm font-medium outline-none transition-all"
+          style={{ border: "2px solid #e1e1e1", background: "white", color: "#2c2c2c" }}
+          onFocus={(e) => { e.target.style.borderColor = "#ff7139"; }}
+          onBlur={(e) => { e.target.style.borderColor = "#e1e1e1"; }}
         />
-        <p className="text-right text-xs text-slate-600">
+        <p className="text-right text-xs font-semibold" style={{ color: "#b3b3b3" }}>
           {tushuntirish.trim().length}/10 min
         </p>
       </div>
 
+      {/* Submit */}
       <button
         onClick={() =>
-          selected &&
-          onSubmit(selected, Array.from(selectedDalillar), tushuntirish.trim())
+          selected && onSubmit(selected, Array.from(selectedDalillar), tushuntirish.trim())
         }
         disabled={!canSubmit}
-        className="w-full rounded-lg bg-amber-600 px-6 py-3 font-semibold text-white transition-opacity disabled:opacity-40 hover:bg-amber-500"
+        className="w-full rounded-xl py-3.5 font-bold text-white transition-transform active:translate-y-1 disabled:opacity-40"
+        style={{ background: "#FE8A4F", boxShadow: "0 4px 0 #ff7139" }}
       >
-        {isSubmitting ? "Tekshirilmoqda…" : "Javob berish"}
+        {isSubmitting ? "Tekshirilmoqda…" : "Javob berish →"}
       </button>
     </div>
   );
