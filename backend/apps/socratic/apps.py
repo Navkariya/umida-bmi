@@ -1,0 +1,7 @@
+from django.apps import AppConfig
+
+
+class SocraticConfig(AppConfig):
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "apps.socratic"
+    verbose_name = "Socratic"

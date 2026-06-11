@@ -19,7 +19,7 @@ describe("apiUrl", () => {
 });
 
 describe("fetchHealth", () => {
-  afterEach(() => vi.restoreAllMocks());
+  afterEach(() => { vi.restoreAllMocks(); });
 
   it("returns parsed JSON on a 2xx response", async () => {
     vi.stubGlobal(

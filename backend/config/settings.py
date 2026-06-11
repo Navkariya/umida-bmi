@@ -44,6 +44,11 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "apps.health",
+    "apps.students",
+    "apps.ai",
+    "apps.game",
+    "apps.socratic",
+    "apps.teacher",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -114,6 +119,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # --- CORS -------------------------------------------------------------------
 CORS_ALLOWED_ORIGINS = env_list("CORS_ALLOWED_ORIGINS", "http://localhost:3000")
+CORS_ALLOW_CREDENTIALS = True
 
 # --- DRF --------------------------------------------------------------------
 REST_FRAMEWORK = {

@@ -1,0 +1,42 @@
+[
+  {
+    "stsenariy_tur": "yolgon_top",
+    "savollar": [
+      {
+        "navbat": 1,
+        "savol": "Nega bu da'voni yolg'on deb o'ylaysiz? Aniqroq tushuntirib bering.",
+        "keyingi": {"chunki": 2, "default": 2}
+      },
+      {
+        "navbat": 2,
+        "savol": "Qanday manba yoki bilim bunga ishonch hosil qilishga yordam berdi?",
+        "keyingi": {"default": 3}
+      },
+      {
+        "navbat": 3,
+        "savol": "Agar siz yanglishgan bo'lsangiz, bu nima o'zgartirardi? Fikringizni baholang.",
+        "keyingi": {"default": 4}
+      }
+    ]
+  },
+  {
+    "stsenariy_tur": "detektiv",
+    "savollar": [
+      {
+        "navbat": 1,
+        "savol": "Tanlagan dalillaringiz ichidan qaysi biri eng kuchli isbotdek ko'rindi va nima uchun?",
+        "keyingi": {"chunki": 2, "default": 2}
+      },
+      {
+        "navbat": 2,
+        "savol": "Tanlamagan dalillar ham foydali bo'lishi mumkin edimi? Qanday?",
+        "keyingi": {"default": 3}
+      },
+      {
+        "navbat": 3,
+        "savol": "Keyingi safar bunday topshiriqni qanday boshqacha bajargan bo'lardingiz?",
+        "keyingi": {"default": 4}
+      }
+    ]
+  }
+]

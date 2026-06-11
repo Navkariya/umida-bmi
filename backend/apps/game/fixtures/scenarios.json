@@ -1,0 +1,138 @@
+[
+  {
+    "model": "game.gamescenario",
+    "pk": 1,
+    "fields": {
+      "tur": 1,
+      "tur_turi": "yolgon_top",
+      "mazmun": {
+        "savol": "Quyosh tizimi haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "Yerning Quyoshdan o'rtacha uzoqligi taxminan 150 million km."},
+          {"id": "D2", "matn": "Mars ikki tabiiy yo'ldoshga ega — Fobos va Deymos."},
+          {"id": "D3", "matn": "Quyosh tizimida Yerdan katta bo'lgan 3 ta sayyora mavjud."}
+        ],
+        "togri_javob": "D3",
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["yupiter", "saturn", "uran", "neptun", "to'rt", "4", "tort"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 60, "tushuntirish": 40},
+        "izoh": "Aslida Yerdan katta bo'lgan 4 ta sayyora mavjud: Yupiter, Saturn, Uran, Neptun."
+      }
+    }
+  },
+  {
+    "model": "game.gamescenario",
+    "pk": 2,
+    "fields": {
+      "tur": 2,
+      "tur_turi": "yolgon_top",
+      "mazmun": {
+        "savol": "Inson tanasi haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "Katta yoshli inson tanasida 206 ta suyak mavjud."},
+          {"id": "D2", "matn": "Qon aylanishi tizimida arteriyalar va venalar ishtirok etadi."},
+          {"id": "D3", "matn": "Sog'lom inson yuragi minutiga o'rtacha 100-120 marta uradi."}
+        ],
+        "togri_javob": "D3",
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["60", "100", "normal", "o'rtacha", "tinch", "dam"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 60, "tushuntirish": 40},
+        "izoh": "Sog'lom inson yuragi tinch holatda minutiga 60-100 marta uradi, 100-120 emas."
+      }
+    }
+  },
+  {
+    "model": "game.gamescenario",
+    "pk": 3,
+    "fields": {
+      "tur": 3,
+      "tur_turi": "detektiv",
+      "mazmun": {
+        "savol": "Suv aylanishi haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "Bug'lanish faqat dengizlar va okeanlardan sodir bo'ladi."},
+          {"id": "D2", "matn": "Yog'ingarchilik suv aylanishining muhim bosqichi hisoblanadi."},
+          {"id": "D3", "matn": "Suv aylanishi asosan quyosh energiyasi ta'sirida amalga oshadi."}
+        ],
+        "togri_javob": "D1",
+        "dalillar": [
+          {"id": "Dal1", "matn": "Tadqiqotlar ko'rsatishicha, ko'llar, daryolar va tuproqdan ham katta miqdorda bug'lanish sodir bo'ladi."},
+          {"id": "Dal2", "matn": "O'simliklardan transpiratsiya jarayonida suv bug'lanishi ham suv aylanishining bir qismi hisoblanadi."},
+          {"id": "Dal3", "matn": "Dunyo okeanlari Yer yuzasining 71%ini tashkil etadi."},
+          {"id": "Dal4", "matn": "Yog'ingarchilik miqdori mintaqadan mintaqaga sezilarli farq qiladi."}
+        ],
+        "togri_dalillar": ["Dal1", "Dal2"],
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["ko'l", "daryo", "tuproq", "transpiratsiya", "o'simlik", "faqat", "emas"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 40, "togri_dalil": 20, "tushuntirish": 40},
+        "izoh": "Bug'lanish faqat dengizlardan emas, ko'llar, daryolar, tuproq va o'simliklardan ham sodir bo'ladi."
+      }
+    }
+  },
+  {
+    "model": "game.gamescenario",
+    "pk": 4,
+    "fields": {
+      "tur": 4,
+      "tur_turi": "detektiv",
+      "mazmun": {
+        "savol": "Yorug'lik va optika haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "Kamalakni faqat yomg'irdan keyin osmondan ko'rish mumkin."},
+          {"id": "D2", "matn": "Oq yorug'lik prizma orqali o'tganda turli ranglarga ajraladi."},
+          {"id": "D3", "matn": "Ko'k rang boshqa ko'rinadigan ranglarga nisbatan qisqaroq to'lqin uzunligiga ega."}
+        ],
+        "togri_javob": "D1",
+        "dalillar": [
+          {"id": "Dal1", "matn": "Laboratoriyada prizma yordamida istalgan vaqtda sun'iy kamalak hosil qilish mumkin."},
+          {"id": "Dal2", "matn": "Sharshabalar va favvoralar yaqinida ham kamalak ko'rinishi kuzatilgan."},
+          {"id": "Dal3", "matn": "Yomg'ir tomchilari yorug'likni sindirish va aks ettirish xossasiga ega."},
+          {"id": "Dal4", "matn": "Kamalak hamisha quyosh tomonga qarama-qarshi tomonda ko'rinadi."}
+        ],
+        "togri_dalillar": ["Dal1", "Dal2"],
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["prizma", "sharshaba", "sun'iy", "laboratoriya", "faqat", "emas", "istalgan"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 40, "togri_dalil": 20, "tushuntirish": 40},
+        "izoh": "Kamalak yomg'irdan tashqari, prizma, sharshabalar va boshqa suv zarralari orqali ham hosil bo'lishi mumkin."
+      }
+    }
+  },
+  {
+    "model": "game.gamescenario",
+    "pk": 5,
+    "fields": {
+      "tur": 5,
+      "tur_turi": "detektiv",
+      "mazmun": {
+        "savol": "Global isish haqida qaysi da'vo yolg'on?",
+        "davolar": [
+          {"id": "D1", "matn": "Atmosferadagi CO2 miqdorining ortishi Yer o'rtacha haroratiga ta'sir qilmaydi."},
+          {"id": "D2", "matn": "Issiqxona effekti — tabiiy jarayon bo'lib, hayot uchun zarur."},
+          {"id": "D3", "matn": "Muzliklarning erishi dengiz sathining oshishiga olib keladi."}
+        ],
+        "togri_javob": "D1",
+        "dalillar": [
+          {"id": "Dal1", "matn": "Olimlar 1958-yildan buyon o'tkazilgan o'lchovlar CO2 miqdori va harorat o'rtasida kuchli bog'liqlikni isbotladi."},
+          {"id": "Dal2", "matn": "Sanoat inqilobidan beri atmosferadagi CO2 miqdori taxminan 50%ga oshdi."},
+          {"id": "Dal3", "matn": "Antarktida muzliklaridagi yadro namunalari 800 000 yillik iqlim ma'lumotlarini o'z ichiga oladi."},
+          {"id": "Dal4", "matn": "Arktika mintaqasida harorat oshishi global o'rtachaga qaraganda ikki barobar tezroq sodir bo'lmoqda."}
+        ],
+        "togri_dalillar": ["Dal1", "Dal2"],
+        "tushuntirish_rubriki": {
+          "kalit_sozlar": ["co2", "harorat", "bog'liq", "oshadi", "isib", "issiqxona", "ta'sir"],
+          "maks": 40
+        },
+        "baho": {"togri_tanlov": 40, "togri_dalil": 20, "tushuntirish": 40},
+        "izoh": "CO2 va harorat o'rtasidagi bog'liqlik ilmiy ma'lumotlar bilan isbotlangan. CO2 oshishi Yer haroratiga ta'sir qiladi."
+      }
+    }
+  }
+]
