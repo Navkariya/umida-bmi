@@ -21,6 +21,12 @@ SECRET_KEY = env_str("SECRET_KEY", "django-insecure-dev-only-change-me")
 DEBUG = env_bool("DEBUG", True)
 ALLOWED_HOSTS = env_list("ALLOWED_HOSTS", "localhost,127.0.0.1")
 
+# Railway injects RAILWAY_PUBLIC_DOMAIN automatically — add it so ALLOWED_HOSTS
+# never needs manual updating when the service domain changes.
+_railway_domain = env_str("RAILWAY_PUBLIC_DOMAIN")
+if _railway_domain and _railway_domain not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append(_railway_domain)
+
 # --- Applications -----------------------------------------------------------
 DJANGO_APPS = [
     "django.contrib.admin",
